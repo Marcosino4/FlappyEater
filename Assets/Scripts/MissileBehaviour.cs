@@ -12,7 +12,7 @@ public class MissileBehaviour : MonoBehaviour
     public float speed = 5f;
     public float rotateSpeed = 200f;
 
-    private GameObject explosionEffect;
+    public GameObject explosionEffect;
     private Rigidbody2D _rb;
     // Start is called before the first frame update
     void Start()

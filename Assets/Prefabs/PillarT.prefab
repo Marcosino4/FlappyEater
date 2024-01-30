@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8291051215365883633}
   - component: {fileID: 8721737427684623196}
   m_Layer: 0
-  m_Name: PillarT
+  m_Name: pillarT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

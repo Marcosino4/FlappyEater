@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class EyeMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 1.5f;
-    [SerializeField] private float _rotationSpeed = 10f;
+    public float _speed = 1.5f;
+    public float _rotationSpeed = 10f;
 
-    Rigidbody2D _rb;
+    public GameObject deathEffect;
+    private Rigidbody2D _rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +38,10 @@ public class EyeMovement : MonoBehaviour
 
     }
 
-    private void Die()
+    private void Death()
     {
-
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
     private void Eat()
@@ -47,19 +49,17 @@ public class EyeMovement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pillar"))
+        if (collision.gameObject.CompareTag("Pillar") || collision.gameObject.CompareTag("Rocket"))
         {
-            Die();
+            Death();
         }
-        if (collision.gameObject.CompareTag("RockerLauncher"))
+        if (collision.gameObject.CompareTag("RocketLauncher"))
         {
             Eat();
         }
-        if (collision.gameObject.CompareTag("Rocket"))
-        {
 
-        }
     }
 }
