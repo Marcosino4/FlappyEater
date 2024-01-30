@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PillarBehaviour : MonoBehaviour
 {
-    [SerializeField] private float _speed = 0.65f;
-    Rigidbody2D _rb;
+    public float _speed = 0.65f;
+    private Rigidbody2D _rb;
 
     // Start is called before the first frame update
     void Start()

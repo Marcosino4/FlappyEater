@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 8419908671364849260}
   - {fileID: 4287127309170571947}
+  - {fileID: 7843752998772123651}
   - {fileID: 7691692639931372003}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -249,8 +250,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8419908671364849260}
   - component: {fileID: 1627508870285529773}
+  - component: {fileID: 3628478328208965513}
   m_Layer: 0
-  m_Name: launchRocket
+  m_Name: spawnRocketTrigger
   m_TagString: LauchRocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,6 +318,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3628478328208965513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085980962133410313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5254222efe60ef4418cfa32ec5f81110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocketLauncher: {fileID: 6824305281029347551}
+  spawnRocket: {fileID: 7287348327267271225, guid: a2e3c3f29ecf713459cdfa599cdac1c9, type: 3}
 --- !u!1 &3363830514469011705
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +416,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6824305281029347551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7843752998772123651}
+  m_Layer: 0
+  m_Name: rocketSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7843752998772123651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824305281029347551}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0.815, y: 2.121, z: 0.1662446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3782318207230146396}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &6949323111644155291
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +523,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1656562000, guid: d325ff41730dcb24a8ae821a2d4c1dc8, type: 3}
+  m_Sprite: {fileID: 1346215477, guid: d325ff41730dcb24a8ae821a2d4c1dc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -523,7 +570,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.66, y: 0.68}
+    oldSize: {x: 0.66, y: 0.78}
     newSize: {x: 0.68, y: 0.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

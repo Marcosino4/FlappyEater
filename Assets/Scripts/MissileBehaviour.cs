@@ -33,9 +33,13 @@ public class MissileBehaviour : MonoBehaviour
         _rb.velocity = transform.up * speed;
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        
     }
 }
