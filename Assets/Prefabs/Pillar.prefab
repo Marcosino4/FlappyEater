@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639668501971459747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.965103, y: 0.40331253, z: 0}
+  m_LocalPosition: {x: 0, y: 0.40331253, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085980962133410313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: 5.26, z: -0.03372716}
+  m_LocalPosition: {x: 0.448, y: 5.26, z: -0.03372716}
   m_LocalScale: {x: 1, y: 4.4125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,7 +305,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.103646666}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -316,7 +316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.79270667}
   m_EdgeRadius: 0
 --- !u!114 &3628478328208965513
 MonoBehaviour:
@@ -330,8 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5254222efe60ef4418cfa32ec5f81110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketLauncher: {fileID: 6824305281029347551}
+  spawnPoint: {fileID: 6824305281029347551}
   spawnRocket: {fileID: 7287348327267271225, guid: a2e3c3f29ecf713459cdfa599cdac1c9, type: 3}
+  spawnRecoil: {fileID: 8584773279180771450, guid: f41c7bbfde8a12646a0b13bd5caaa5a3, type: 3}
 --- !u!1 &3363830514469011705
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,9 +458,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4287127309170571947}
   - component: {fileID: 8180183747728911942}
-  - component: {fileID: 4513354669073841343}
   - component: {fileID: 6470481274627797610}
   - component: {fileID: 502281303817568115}
+  - component: {fileID: 8415022438242740271}
   m_Layer: 0
   m_Name: rocketLauncher
   m_TagString: RocketLauncher
@@ -534,51 +535,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4513354669073841343
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6949323111644155291}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.024975002, y: 0.32013065}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.66, y: 0.78}
-    newSize: {x: 0.68, y: 0.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.63729703, y: 0.63913214}
-  m_EdgeRadius: 0
 --- !u!95 &6470481274627797610
 Animator:
   serializedVersion: 5
@@ -612,3 +568,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5020b1cb22b0d12439266dc570dc9a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnim: {fileID: 8959715930760302755, guid: 0e86c6e84176a3648bb9c09b5efa06e6, type: 3}
+--- !u!61 &8415022438242740271
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6949323111644155291}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.20155948, y: 0.4949789}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.66, y: 0.78}
+    newSize: {x: 0.68, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0631188, y: 0.9899578}
+  m_EdgeRadius: 0

@@ -6,6 +6,8 @@ public class SpawnRocket : MonoBehaviour
 {
     public GameObject spawnPoint;
     public GameObject spawnRocket;
+    public GameObject spawnRecoil;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +15,9 @@ public class SpawnRocket : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -23,7 +25,9 @@ public class SpawnRocket : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Instantiate(spawnRocket, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            Instantiate(spawnRecoil, new Vector3(transform.position.x ,transform.position.y - 3.5f, transform.position.z), transform.rotation);
 
         }
+        
     }
 }

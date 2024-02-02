@@ -8,6 +8,8 @@ TagManager:
   - Pillar
   - Rocket
   - Explosion
+  - LauchRocket
+  - Limit
   layers:
   - Default
   - TransparentFX

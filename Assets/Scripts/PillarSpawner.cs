@@ -30,6 +30,7 @@ public class PillarSpawner : MonoBehaviour
             if (pillar)
             {
                 pillar.SetActive(true);
+                pillar.transform.GetChild(1).gameObject.SetActive(true);
                 pillar.transform.position = new Vector3(transform.position.x, Random.Range(_maxHeight, _minHeight), 0);
             }
             // el tiempo ha pasado

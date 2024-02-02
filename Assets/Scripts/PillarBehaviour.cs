@@ -19,6 +19,7 @@ public class PillarBehaviour : MonoBehaviour
         if(transform.position.x < -10)
         {
             gameObject.SetActive(false);
+
         }
         transform.position += Vector3.left * _speed * Time.deltaTime;  
     }
