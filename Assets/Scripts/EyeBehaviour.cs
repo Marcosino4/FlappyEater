@@ -71,10 +71,11 @@ public class EyeBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("RocketLauncher"))
         {
 
-                _animator.SetBool("Bite", true);
+            _animator.SetBool("Bite", true);
 
-                Invoke(nameof(StopBite), 0.2f);
+            Invoke(nameof(StopBite), 0.2f);
 
+           
 
         }
     }

@@ -23,6 +23,8 @@ public class RocketLauncherBehaviour : MonoBehaviour
     {
         Instantiate(deathAnim, transform.position, transform.rotation);
         gameObject.SetActive(false);
+        Score.Instance.addPoints();
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)

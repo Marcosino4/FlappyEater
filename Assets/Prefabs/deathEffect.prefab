@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 295794348474869470}
   - component: {fileID: 652128528015512990}
   - component: {fileID: 5632293816032160887}
-  m_Layer: 1
+  m_Layer: 5
   m_Name: deathEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

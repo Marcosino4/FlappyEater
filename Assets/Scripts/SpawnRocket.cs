@@ -6,7 +6,7 @@ public class SpawnRocket : MonoBehaviour
 {
     public GameObject spawnPoint;
     public GameObject spawnRocket;
-    public GameObject spawnRecoil;
+    public GameObject rocketLauncher;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +20,20 @@ public class SpawnRocket : MonoBehaviour
 
     }
 
+    public void EndShooting()
+    {
+        rocketLauncher.GetComponent<Animator>().SetBool("Shoot", false);
+        Instantiate(spawnRocket, spawnPoint.transform.position, spawnPoint.transform.rotation);
+
+    }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Instantiate(spawnRocket, spawnPoint.transform.position, spawnPoint.transform.rotation);
-            Instantiate(spawnRecoil, new Vector3(transform.position.x ,transform.position.y - 3.5f, transform.position.z), transform.rotation);
+            rocketLauncher.GetComponent<Animator>().SetBool("Shoot", true);
 
+            Invoke(nameof(EndShooting), 0.3f);
         }
-        
+
     }
 }
