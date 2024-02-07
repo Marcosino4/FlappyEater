@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RocketLauncherBehaviour : MonoBehaviour
 {
-    public GameObject deathAnim;
+    public ParticleSystem deathEffect;
 
     private Rigidbody2D _rb;
     // Start is called before the first frame update
@@ -20,10 +20,11 @@ public class RocketLauncherBehaviour : MonoBehaviour
     }
 
     public void Death()
-    {
-        Instantiate(deathAnim, transform.position, transform.rotation);
+    {   
+        deathEffect.Play();
+
         gameObject.SetActive(false);
-        Score.Instance.addPoints();
+        Score.instance.addPoints();
 
     }
 

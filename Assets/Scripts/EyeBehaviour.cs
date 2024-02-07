@@ -9,30 +9,20 @@ public class EyeBehaviour : MonoBehaviour
     public float _rotationSpeed = 10f;
 
     public GameObject deathEffect;
+    private int movement = 0;
 
     private Animator _animator;
     private Rigidbody2D _rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        movement = GameManager.instance.movement;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0)))
-        {
-
-            _rb.velocity = Vector2.up * _speed;
-
-
-        }
-        if(transform.position.x != -5f)
-        {
-            transform.position = new Vector3(-5, transform.position.y, transform.position.z);
-        }
         if (transform.position.y > 3.5f)
         {
             transform.position = new Vector3(transform.position.x, 3.5f, transform.position.z);
@@ -41,6 +31,79 @@ public class EyeBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -3.5f, transform.position.z);
         }
+
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        //pc
+
+        if (transform.position.x != -5f)
+        {
+            transform.position = new Vector3(-5, transform.position.y, transform.position.z);
+        }
+
+        switch (movement)
+        {
+            case 0:
+                if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0)))
+                {
+
+                    _rb.velocity = Vector2.up * _speed;
+                }
+                break;
+            case 1:
+                if (Input.GetKey(KeyCode.Space) || (Input.GetKey(KeyCode.Mouse0)))
+                {
+
+                    _rb.velocity = Vector2.up * (_speed - 1);
+                }
+                break;
+            case 2:
+                if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0)))
+                {
+
+                    _rb.gravityScale *= -1;
+                }
+                break;
+
+        }
+
+#elif UNITY_ANDROID
+        // movil
+
+        foreach(Touch toque in Input.touches)
+        {
+        switch (movement)
+        {
+            case 0:
+                if (toque.phase == TouchPhase.Began)
+                {
+                    _rb.velocity = Vector2.up * (_speed - 1);
+                }
+                break;
+            case 1:
+                if (toque.phase == TouchPhase.Stationary)
+                {
+                    _rb.velocity = Vector2.up * (_speed - 1);
+                }
+                break;
+            case 2:
+                if (toque.phase == TouchPhase.Began)
+                {
+
+                    _rb.gravityScale *= -1;
+                }
+                break;
+
+        }
+
+            
+        }
+        if (transform.position.x != -1f)
+        {
+            transform.position = new Vector3(-1, transform.position.y, transform.position.z);
+        }
+
+
+#endif
 
     }
 
@@ -61,6 +124,10 @@ public class EyeBehaviour : MonoBehaviour
     {
         _animator.SetBool("Bite", false);
     }
+    public void SelectedMovement(int movement)
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -79,6 +146,7 @@ public class EyeBehaviour : MonoBehaviour
 
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {

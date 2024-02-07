@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.Audio;
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public void SetVolume(float volume)
+
+    public void SetEyeMovementTap()
     {
-        audioMixer.SetFloat("volume", volume);
+        //EyeBehaviour.eyeInstance.ChangeMovement("tap");
+        GameManager.instance.movement = 0;
     }
-    public void SetFullscreen(bool isFullscreen)
+    public void SetEyeMovementHold()
     {
-        Screen.fullScreen = isFullscreen; 
+        GameManager.instance.movement = 1;
+        //EyeBehaviour.eyeInstance.ChangeMovement("hold");
+    }
+    public void SetEyeMovementSwing()
+    {
+        GameManager.instance.movement = 2;
+        //EyeBehaviour.eyeInstance.ChangeMovement("swing");
     }
 }
