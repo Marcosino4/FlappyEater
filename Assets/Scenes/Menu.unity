@@ -2470,6 +2470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f3dd8d056552c4f871fe6a49aebf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayButton: {fileID: 259198720}
+  QuitButton: {fileID: 942340423}
 --- !u!1 &1272203555
 GameObject:
   m_ObjectHideFlags: 0

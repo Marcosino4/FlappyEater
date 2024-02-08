@@ -1495,6 +1495,7 @@ GameObject:
   - component: {fileID: 1135140539}
   - component: {fileID: 1135140538}
   - component: {fileID: 1135140537}
+  - component: {fileID: 1135140540}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1590,6 +1591,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1135140540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135140535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109ebd471c8d4cb4aa341ade2522785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseButton: {fileID: 657739933}
+  ResumeButton: {fileID: 663759110}
+  BackToMenuButton: {fileID: 1881752294}
 --- !u!1 &1164030820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,6 +2463,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1135140535}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1881752295
 MonoBehaviour:

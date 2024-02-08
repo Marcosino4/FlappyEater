@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int movement;
     public AudioMixer audioMixer;
-    
-    // [SerializeField] private GameObject _gameObjectCanvas;
 
+    // [SerializeField] private GameObject _gameObjectCanvas;
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
     private void Awake()
     {
         if (instance == null)
@@ -24,7 +27,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Time.timeScale = 1f;
     }
     public void SetVolume(float volume)
     {
@@ -34,25 +36,12 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0f;
+
     }
     public void ResumeGame()
     {
         Time.timeScale = 1f;
-    }
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("Game");
-    }
-    public void BackToMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
-    }
 
-    public void QuitGame()
-    {
-        Debug.Log("Quitted");
-        Application.Quit();
     }
 
     /*
