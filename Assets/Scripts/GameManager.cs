@@ -9,23 +9,22 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int movement;
     public AudioMixer audioMixer;
+    public bool changeScene = false;
 
     // [SerializeField] private GameObject _gameObjectCanvas;
     private void Start()
     {
         Time.timeScale = 1f;
+        changeScene = false;
     }
     private void Awake()
     {
-        if (instance == null)
+        if (!instance)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
 
     }
     public void SetVolume(float volume)
@@ -43,19 +42,29 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
     }
-
-    /*
-    public void GameOver()
+    public void BackToMenu()
     {
-        _gameObjectCanvas.SetActive(true);
-
-        Time.timeScale = 0f;
+        if (!changeScene)
+        {
+            Time.timeScale = 1f;
+            changeScene = true;
+            SceneManager.LoadScene(0);
+        }
     }
 
+    public void PlayGame()
+    {
+        if (!changeScene)
+        {
+            changeScene = true;
+            SceneManager.LoadScene(1);
+        }
 
-    public void ReStart()
+    }
+
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    */
+
 }

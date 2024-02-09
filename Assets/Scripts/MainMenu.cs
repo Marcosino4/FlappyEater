@@ -8,30 +8,20 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Button PlayButton;
-    private bool changeScene = false;
     public Button QuitButton;
 
     private void Start()
     {
-        changeScene = false;
         Time.timeScale = 1f;
+        GameManager.instance.changeScene = false;
     }
 
     private void FixedUpdate()
     {
-        PlayButton.onClick.AddListener(PlayGame);
-        QuitButton.onClick.AddListener(PlayGame);
+        PlayButton.onClick.AddListener(GameManager.instance.PlayGame);
+        QuitButton.onClick.AddListener(QuitGame);
     }
 
-    public void PlayGame()
-    {
-        if (!changeScene)
-        {
-            changeScene = true;
-            SceneManager.LoadScene(1);
-        }
-
-    }
     public void QuitGame()
     {
         Debug.Log("Quitted");

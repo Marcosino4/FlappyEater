@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,7 +8,7 @@ public class EyeBehaviour : MonoBehaviour
 {
     public float _speed = 1.5f;
     public float _rotationSpeed = 10f;
-
+    public static event Action onPlayerDeath;
     public GameObject deathEffect;
     private int movement = 0;
 
@@ -116,17 +117,23 @@ public class EyeBehaviour : MonoBehaviour
 
     private void Death()
     {
+        gameObject.SetActive(false);
         Instantiate(deathEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
 
+    }
+    private void SetScore()
+    {
+
+        if (PlayerPrefs.GetInt("record", 0) < Score.instance.GetScore())
+        {
+
+            PlayerPrefs.SetInt("record", Score.instance.GetScore());
+        }
+        Record.instance.SetRecord();
+    }
     private void StopBite()
     {
         _animator.SetBool("Bite", false);
-    }
-    public void SelectedMovement(int movement)
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -134,6 +141,8 @@ public class EyeBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Pillar") || collision.gameObject.CompareTag("Rocket"))
         {
             Death();
+            SetScore();
+            onPlayerDeath?.Invoke();
         }
         if (collision.gameObject.CompareTag("RocketLauncher"))
         {

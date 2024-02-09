@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     public static Score instance;
     public TextMeshProUGUI scoreText;
-    private int _score = 0;
+    public int score = 0;
     void Awake()
     {
         if(!instance)
@@ -18,7 +18,12 @@ public class Score : MonoBehaviour
 
     public void addPoints()
     {
-        _score++;
-        scoreText.SetText(_score.ToString());
+        score++;
+        scoreText.SetText(score.ToString());
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
