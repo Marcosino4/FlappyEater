@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public AudioMixer audioMixer;
     public bool changeScene = false;
 
-    // [SerializeField] private GameObject _gameObjectCanvas;
     private void Start()
     {
         Time.timeScale = 1f;
