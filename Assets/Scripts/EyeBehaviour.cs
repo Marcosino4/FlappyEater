@@ -10,8 +10,9 @@ public class EyeBehaviour : MonoBehaviour
     public float _rotationSpeed = 10f;
     public static event Action onPlayerDeath;
     public GameObject deathEffect;
-    private int movement = 0;
+    public AudioSource explosion;
 
+    private int movement = 0;
     private Animator _animator;
     private Rigidbody2D _rb;
 
@@ -117,11 +118,12 @@ public class EyeBehaviour : MonoBehaviour
 
     private void Death()
     {
+        explosion.Play();
         gameObject.SetActive(false);
         Instantiate(deathEffect, transform.position, transform.rotation);
 
     }
-    private void SetScore()
+    private void SetRecord()
     {
 
         if (PlayerPrefs.GetInt("record", 0) < Score.instance.GetScore())
@@ -141,7 +143,7 @@ public class EyeBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Pillar") || collision.gameObject.CompareTag("Rocket"))
         {
             Death();
-            SetScore();
+            SetRecord();
             onPlayerDeath?.Invoke();
         }
         if (collision.gameObject.CompareTag("RocketLauncher"))
