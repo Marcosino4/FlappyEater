@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PauseButton.onClick.AddListener(GameManager.instance.PauseGame);
         ResumeButton.onClick.AddListener(GameManager.instance.ResumeGame);
         BackToMenuButton.onClick.AddListener(GameManager.instance.BackToMenu);
    

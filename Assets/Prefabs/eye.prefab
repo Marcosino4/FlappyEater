@@ -186,3 +186,4 @@ MonoBehaviour:
   _speed: 5
   _rotationSpeed: 2.5
   deathEffect: {fileID: 8959715930760302755, guid: 0e86c6e84176a3648bb9c09b5efa06e6, type: 3}
+  explosion: {fileID: 6199398489291186436, guid: 1da7b8bf7403ffc4cb90e2847e817701, type: 3}
