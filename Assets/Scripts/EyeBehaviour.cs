@@ -33,14 +33,13 @@ public class EyeBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -3.5f, transform.position.z);
         }
-
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-        //pc
-
         if (transform.position.x != -5f)
         {
             transform.position = new Vector3(-5, transform.position.y, transform.position.z);
         }
+
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        //pc
 
         switch (movement)
         {
@@ -98,10 +97,6 @@ public class EyeBehaviour : MonoBehaviour
         }
 
             
-        }
-        if (transform.position.x != -1f)
-        {
-            transform.position = new Vector3(-1, transform.position.y, transform.position.z);
         }
 
 
