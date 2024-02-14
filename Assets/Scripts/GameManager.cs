@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
     }
-    public void BackToMenu()
+    public void BackToMenu() //Volver al menu principal
     {
         if (!changeScene)
         {
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Restart()
+    public void Restart()   //Reiniciar partida
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

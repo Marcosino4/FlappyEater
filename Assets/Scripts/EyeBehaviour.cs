@@ -41,7 +41,7 @@ public class EyeBehaviour : MonoBehaviour
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         //pc
 
-        switch (movement)
+        switch (movement) //Distintos modos de juego
         {
             case 0:
                 if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0)))
@@ -72,7 +72,7 @@ public class EyeBehaviour : MonoBehaviour
 
         foreach(Touch toque in Input.touches)
         {
-        switch (movement)
+        switch (movement) //Distintos modos de juego
         {
             case 0:
                 if (toque.phase == TouchPhase.Began)
@@ -111,14 +111,14 @@ public class EyeBehaviour : MonoBehaviour
 
     }
 
-    private void Death()
+    private void Death() //Muerte del personaje
     {
         explosion.Play();
         gameObject.SetActive(false);
         Instantiate(deathEffect, transform.position, transform.rotation);
 
     }
-    private void SetRecord()
+    private void SetRecord() //Cambia el highscore de los PlayerPrefs
     {
 
         if (PlayerPrefs.GetInt("record", 0) < Score.instance.GetScore())
@@ -133,7 +133,7 @@ public class EyeBehaviour : MonoBehaviour
         _animator.SetBool("Bite", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //Compara si muere o suma punto
     {
         if (collision.gameObject.CompareTag("Pillar") || collision.gameObject.CompareTag("Rocket"))
         {

@@ -8,19 +8,7 @@ public class SpawnRocket : MonoBehaviour
     public GameObject spawnRocket;
     public GameObject rocketLauncher;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-    }
-
-    public void EndShooting()
+    public void EndShooting() //Stop shooting for not being in loop
     {
         rocketLauncher.GetComponent<Animator>().SetBool("Shoot", false);
         Instantiate(spawnRocket, spawnPoint.transform.position, spawnPoint.transform.rotation);
@@ -28,7 +16,7 @@ public class SpawnRocket : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player")) //Shoot when player enters trigger
         {
             rocketLauncher.GetComponent<Animator>().SetBool("Shoot", true);
 

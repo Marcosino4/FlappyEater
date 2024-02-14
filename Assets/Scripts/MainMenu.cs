@@ -14,8 +14,8 @@ public class MainMenu : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayButton.onClick.AddListener(GameManager.instance.PlayGame);
-        QuitButton.onClick.AddListener(QuitGame);
+        PlayButton.onClick.AddListener(GameManager.instance.PlayGame);  //Inicio juego
+        QuitButton.onClick.AddListener(QuitGame);   //Fin juego
     }
 
     public void QuitGame()

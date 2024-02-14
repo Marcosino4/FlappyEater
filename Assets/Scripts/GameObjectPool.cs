@@ -43,7 +43,6 @@ public class GameObjectPool : MonoBehaviour
             return AddGameObjectToPool();
         }
 
-        // if can't expand, that must be handled in the other script
         return null;
     }
 
